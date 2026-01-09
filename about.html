@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About | SCI UNIT</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="top-nav-wrap">
+      <nav class="top-nav" aria-label="เมนูหลัก">
+        <div class="brand">
+          <!-- <img src="images/logo.png" alt="โลโก้พรรค" /> -->
+          <div>
+            <span class="title">SCI UNIT</span>
+            <span class="sub">พิทักษ์รักษาสิทธิ์ นำพาวิทยาก้าวไกล</span>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a class="nav-link" href="index.html">หน้าแรก</a>
+          <a class="nav-link" href="about.html">เกี่ยวกับพรรค</a>
+          <a class="nav-link" href="candidates.html">ทีมผู้สมัคร</a>
+          <a class="nav-link" href="policies.html">นโยบายพรรค</a>
+          <a class="nav-link" href="why-us.html">ทำไมต้องเลือกพรรคเรา</a>
+          <a class="nav-link" href="contact.html">ติดต่อ & ติดตามเรา</a>
+        </div>
+      </nav>
+    </div>
+
+    <main class="page">
+      <section class="hero">
+        <h1>เกี่ยวกับพรรค</h1>
+        <p>SCI UNIT Together We Move Forward | เราจะก้าวไปข้างหน้าด้วยกัน</p>
+      </section>
+
+      <section class="grid">
+        <article
+          class="card about-item"
+          data-title="วิสัยทัศน์"
+          data-detail="วิสัยทัศน์ พรรค SCI UNIT มุ่งมั่นพิทักษ์รักษาสิทธิ เสรีภาพ และความเท่าเทียมของนักศึกษาคณะวิทยาศาสตร์
+พร้อมทั้งพัฒนาคุณภาพชีวิตและสภาพแวดล้อมในการเรียนรู้
+ผ่านกิจกรรมที่สร้างสรรค์และเป็นประโยชน์แก่นักศึกษา
+เปิดพื้นที่ให้ทุกเสียงได้มีส่วนร่วม และเสริมสร้างความสามัคคีในคณะ
+เพื่อพานักศึกษาคณะวิทยาศาสตร์ก้าวไปข้างหน้าอย่างมั่นคงและยั่งยืน
+ภายใต้แนวคิด Together We Move Forward"
+        >
+          <h3>วิสัยทัศน์</h3>
+          <p>
+            วิสัยทัศน์ พรรค SCI UNIT มุ่งมั่นพิทักษ์รักษาสิทธิ เสรีภาพ
+            และความเท่าเทียมของนักศึกษาคณะวิทยาศาสตร์
+          </p>
+        </article>
+
+        <article
+          class="card about-item"
+          data-title="พันธกิจ"
+          data-detail="อธิบายสิ่งที่พรรคจะลงมือทำให้เกิดขึ้นจริง
+- (เติมข้อ 1)
+- (เติมข้อ 2)
+- (เติมข้อ 3)"
+        >
+          <h3>พันธกิจ</h3>
+          <p>อธิบายสิ่งที่พรรคจะลงมือทำให้เกิดขึ้นจริง</p>
+        </article>
+      </section>
+      <!-- About Modal -->
+      <div class="modal" id="aboutModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close="true"></div>
+
+        <div
+          class="modal-box"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="aboutModalTitle"
+        >
+          <button class="modal-close" data-close="true" aria-label="ปิด">
+            ✕
+          </button>
+          <h2 id="aboutModalTitle">หัวข้อ</h2>
+          <div class="modal-content" id="aboutModalContent"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/about-modal.js"></script>
+  </body>
+</html>

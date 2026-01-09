@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Candidates | SCI UNIT</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="top-nav-wrap">
+      <nav class="top-nav" aria-label="เมนูหลัก">
+        <div class="brand">
+          <!-- <img src="images/logo.png" alt="โลโก้พรรค" /> -->
+          <div>
+            <span class="title">SCI UNIT</span>
+            <span class="sub">พิทักษ์รักษาสิทธิ์ นำพาวิทยาก้าวไกล</span>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a class="nav-link" href="index.html">หน้าแรก</a>
+          <a class="nav-link" href="about.html">เกี่ยวกับพรรค</a>
+          <a class="nav-link" href="candidates.html">ทีมผู้สมัคร</a>
+          <a class="nav-link" href="policies.html">นโยบายพรรค</a>
+          <a class="nav-link" href="why-us.html">ทำไมต้องเลือกพรรคเรา</a>
+          <a class="nav-link" href="contact.html">ติดต่อ & ติดตามเรา</a>
+        </div>
+      </nav>
+    </div>
+
+    <main class="page">
+      <section class="hero">
+        <h1>ทีมผู้สมัคร</h1>
+        <p>มารู้จักทีมผู้สมัครของพรรค SCI UNIT</p>
+      </section>
+
+      <section class="grid candidates-grid">
+        <article
+          class="card candidate-item"
+          data-name="นายชนะศร เฉลียวยิ่ง"
+          data-role="หัวหน้าพรรค #1"
+          data-meta="คณิตศาสตร์ / ปี 2"
+          data-zone="SCI UNIT"
+          data-number="1"
+          data-image="images/1001.jpg"
+          data-title="รายละเอียดผู้สมัคร"
+          data-area="คณะวิทยาศาสตร์"
+          data-subarea="มหาวิทยาลัยอุบลราชธานี"
+          data-work='["ผู้ช่วยโครงการ A (2567)","หัวหน้าทีมกิจกรรมคณะ (2568)","แกนนำกิจกรรมจิตอาสา (2568)"]'
+          data-edu='["ปัจจุบัน: คณะวิทยาศาสตร์ (สาขา...)","มัธยมศึกษา: โรงเรียน..."]'
+        >
+          <div class="candidate-card">
+            <img
+              class="candidate-avatar"
+              src="images/1001.jpg"
+              alt="รูปผู้สมัคร"
+            />
+            <div class="candidate-text">
+              <h3 class="candidate-role">หัวหน้าพรรค #1</h3>
+              <p class="candidate-meta">
+                นายชนะศร เฉลียวยิ่ง / คณิตศาสตร์ / ปี 2
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ทำซ้ำเพิ่มได้อีกหลายใบ... -->
+
+        <article
+          class="card candidate-item"
+          data-name="นายชนะศร เฉลียวยิ่ง"
+          data-role="รองหัวหน้าพรรค 1 #1"
+          data-meta="คณิตศาสตร์ / ปี 2"
+          data-zone="SCI UNIT"
+          data-number="1"
+          data-image="images/1001.jpg"
+          data-title="รายละเอียดผู้สมัคร"
+          data-area="คณะวิทยาศาสตร์"
+          data-subarea="มหาวิทยาลัยอุบลราชธานี"
+          data-work='["ผู้ช่วยโครงการ A (2567)","หัวหน้าทีมกิจกรรมคณะ (2568)","แกนนำกิจกรรมจิตอาสา (2568)"]'
+          data-edu='["ปัจจุบัน: คณะวิทยาศาสตร์ (สาขา...)","มัธยมศึกษา: โรงเรียน..."]'
+        >
+          <div class="candidate-card">
+            <img
+              class="candidate-avatar"
+              src="images/1001.jpg"
+              alt="รูปผู้สมัคร"
+            />
+            <div class="candidate-text">
+              <h3 class="candidate-role">รองหัวหน้าพรรค 1 #1</h3>
+              <p class="candidate-meta">
+                นายชนะศร เฉลียวยิ่ง / คณิตศาสตร์ / ปี 2
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ทำซ้ำเพิ่มได้อีกหลายใบ... -->
+      </section>
+      <div class="modal" id="candidateModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close="true"></div>
+
+        <div
+          class="candidate-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="cmTitle"
+        >
+          <button class="modal-close" data-close="true" aria-label="ปิด">
+            ✕
+          </button>
+
+          <div class="candidate-modal-grid">
+            <!-- ซ้าย: การ์ดรูป -->
+            <div class="candidate-left">
+              <div class="floating-card photo-card">
+                <div class="photo-top">
+                  <div class="badge">
+                    <span>เลือกเบอร์</span>
+                    <div class="badge-num" id="cmNumber">1</div>
+                  </div>
+                </div>
+
+                <img id="cmPhoto" class="photo-img" src="" alt="รูปผู้สมัคร" />
+
+                <div class="photo-bottom">
+                  <div class="photo-name" id="cmName">ชื่อผู้สมัคร</div>
+                  <div class="photo-role" id="cmRole">ตำแหน่ง</div>
+                  <div class="photo-zone" id="cmZone">เขต/ทีม</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ขวา: การ์ดรายละเอียด (scroll ได้) -->
+            <div class="candidate-right">
+              <div class="floating-card info-card">
+                <h2 id="cmTitle" class="info-title">รายละเอียดผู้สมัคร</h2>
+                <div class="info-sub" id="cmArea">คณะ/สังกัด</div>
+
+                <div class="info-section">
+                  <div class="pill">ประวัติการทำงาน</div>
+                  <ul class="info-list" id="cmWork"></ul>
+                </div>
+
+                <div class="info-section">
+                  <div class="pill">ประวัติการศึกษา</div>
+                  <ul class="info-list" id="cmEdu"></ul>
+                </div>
+
+                <div class="info-section">
+                  <div class="pill">ข้อมูลเพิ่มเติม</div>
+                  <div class="info-text" id="cmMeta"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="js/main.js"></script>
+      <script src="js/candidates-modal.js"></script>
+    </main>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

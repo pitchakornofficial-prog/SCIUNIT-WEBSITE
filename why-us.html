@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Why Us | SCI UNIT</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="top-nav-wrap">
+      <nav class="top-nav" aria-label="เมนูหลัก">
+        <div class="brand">
+          <!-- <img src="images/logo.png" alt="โลโก้พรรค" /> -->
+          <div>
+            <span class="title">SCI UNIT</span>
+            <span class="sub">พิทักษ์รักษาสิทธิ์ นำพาวิทยาก้าวไกล</span>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a class="nav-link" href="index.html">หน้าแรก</a>
+          <a class="nav-link" href="about.html">เกี่ยวกับพรรค</a>
+          <a class="nav-link" href="candidates.html">ทีมผู้สมัคร</a>
+          <a class="nav-link" href="policies.html">นโยบายพรรค</a>
+          <a class="nav-link" href="why-us.html">ทำไมต้องเลือกพรรคเรา</a>
+          <a class="nav-link" href="contact.html">ติดต่อ & ติดตามเรา</a>
+        </div>
+      </nav>
+    </div>
+
+    <main class="page">
+      <section class="hero">
+        <h1>ทำไมต้องเลือกพรรคเรา</h1>
+        <p>อธิบายเหตุผลที่ทำให้พรรคของเราน่าสนใจและแตกต่างจากพรรคอื่น ๆ</p>
+      </section>
+
+      <section class="grid">
+        <article
+          class="card why-item"
+          data-title="โปร่งใส ตรวจสอบได้"
+          data-detail="อธิบายกลไกหรือแนวคิดด้านความโปร่งใส เช่น
+- เปิดเผยการทำงานและการตัดสินใจ
+- รับฟังเสียงนักศึกษาและสรุปผลการดำเนินงาน
+- ตรวจสอบได้และมีหลักฐานชัดเจน"
+        >
+          <h3>โปร่งใส ตรวจสอบได้</h3>
+          <p>อธิบายกลไกหรือแนวคิดด้านความโปร่งใส</p>
+        </article>
+
+        <article
+          class="card why-item"
+          data-title="ทำได้จริง วัดผลได้"
+          data-detail="ใส่ตัวอย่างแผนงานที่ชัดเจนและมีตัวชี้วัด เช่น
+- มีเป้าหมายเป็นรูปธรรม
+- มีระยะเวลาและขั้นตอน
+- มีวิธีติดตามผลและรายงานความคืบหน้า"
+        >
+          <h3>ทำได้จริง วัดผลได้</h3>
+          <p>ใส่ตัวอย่างแผนงานที่ชัดเจนและมีตัวชี้วัด</p>
+        </article>
+      </section>
+    </main>
+    <!-- Why Us Modal -->
+    <div class="modal" id="whyModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="true"></div>
+
+      <div
+        class="modal-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="whyModalTitle"
+      >
+        <button class="modal-close" data-close="true" aria-label="ปิด">
+          ✕
+        </button>
+        <h2 id="whyModalTitle">หัวข้อ</h2>
+        <div class="modal-content" id="whyModalContent"></div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/why-us-modal.js"></script>
+  </body>
+</html>

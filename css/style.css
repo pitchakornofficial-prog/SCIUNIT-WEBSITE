@@ -1,0 +1,549 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: rgba(17, 24, 39, 0.1);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --pill: rgba(255, 255, 255, 0.88);
+  --pill-blur: 12px;
+  --active: rgba(17, 24, 39, 0.1);
+  --hover: rgba(17, 24, 39, 0.06);
+  --radius: 999px;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #fff 0%, #f7f7fb 100%);
+}
+
+/* --- Floating Top Nav --- */
+.top-nav-wrap {
+  position: fixed;
+  top: 14px;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* ให้คลิกได้เฉพาะแถบเมนู */
+}
+
+.top-nav {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--pill);
+  backdrop-filter: blur(var(--pill-blur));
+  -webkit-backdrop-filter: blur(var(--pill-blur));
+  box-shadow: var(--shadow);
+  max-width: min(1100px, calc(100% - 24px));
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.top-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+}
+.brand img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+.brand .title {
+  font-weight: 700;
+  font-size: 30px;
+}
+.brand .sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 13.5px;
+  white-space: nowrap;
+  transition: background 180ms ease, transform 120ms ease;
+}
+.nav-link:hover {
+  background: var(--hover);
+}
+.nav-link:active {
+  transform: translateY(1px);
+}
+.nav-link.active {
+  background: var(--active);
+}
+
+/* --- Page Layout --- */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 110px 16px 60px; /* เผื่อพื้นที่เมนูลอยด้านบน */
+}
+
+.hero {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.05);
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(22px, 3.2vw, 34px);
+}
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+
+.card {
+  grid-column: span 6;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+}
+.card h3 {
+  margin: 0 0 8px;
+}
+.card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 860px) {
+  .card {
+    grid-column: span 12;
+  }
+  .brand .sub {
+    display: none;
+  }
+}
+
+.card-link {
+  display: block; /* สำคัญ: ให้คลุมพื้นที่ทั้งการ์ด */
+  text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+  color: inherit; /* ใช้สีเหมือน card เดิม */
+  cursor: pointer;
+}
+
+.card-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ทำให้การ์ดรู้สึกว่า "กดได้" */
+.policy-item {
+  cursor: pointer;
+}
+.policy-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 10000;
+}
+.modal.show {
+  display: block;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.modal-box {
+  position: relative;
+  max-width: 720px;
+  width: calc(100% - 24px);
+  margin: 80px auto 0;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  padding: 18px 18px 14px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.modal-box h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.modal-content {
+  color: #374151;
+  line-height: 1.8;
+  white-space: pre-line; /* ✅ ทำให้ \n และรายการขึ้นบรรทัดใหม่ */
+  max-height: 55vh;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f3f4f6;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #e5e7eb;
+}
+
+/* ทำให้การ์ดดูคลิกได้ */
+.contact-item {
+  cursor: pointer;
+}
+.contact-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ปุ่มลิงก์ Social ใน Modal */
+.social-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f3f4f6;
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.social-btn:hover {
+  background: #e5e7eb;
+}
+
+/* กล่องรวมปุ่ม */
+.social-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ปุ่มแบบการ์ด */
+.social-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+
+  text-decoration: none;
+  color: #111827;
+  font-weight: 600;
+  font-size: 14px;
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* hover เหมือน card */
+.social-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.08);
+}
+
+/* ABOUT: ให้การ์ดดูคลิกได้ */
+.about-item {
+  cursor: pointer;
+}
+
+.about-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* กันพลาด: ให้ modal-content ขึ้นบรรทัดตาม \n */
+.modal-content {
+  white-space: pre-line;
+}
+
+.why-item {
+  cursor: pointer;
+}
+
+.why-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* -------------------------
+   Candidate cards (หน้า list)
+-------------------------- */
+.candidates-grid .card{
+  cursor: pointer;
+}
+
+.candidate-card{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.candidate-avatar{
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(0,0,0,0.08);
+}
+
+.candidate-role{
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.candidate-meta{
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* hover ให้ฟีลคลิกได้ */
+.candidates-grid .card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px rgba(0,0,0,0.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* -------------------------
+   Candidate Modal Layout
+-------------------------- */
+.candidate-modal{
+  position: relative;
+  max-width: 1040px;
+  width: calc(100% - 24px);
+  margin: 60px auto 0;
+}
+
+.candidate-modal-grid{
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 18px;
+}
+
+/* การ์ดลอย มุมโค้ง */
+.floating-card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+
+/* ซ้าย: การ์ดรูป */
+.photo-card{
+  background: #0b2a45; /* โทนเข้มเหมือนตัวอย่าง */
+  color: #fff;
+}
+
+.photo-top{
+  padding: 14px 14px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.18);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.badge-num{
+  width: 36px;
+  height: 32px;
+  border-radius: 10px;
+  background: #34d399;
+  color: #0b2a45;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+
+.photo-img{
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-bottom{
+  background: #fff;
+  color: #111827;
+  padding: 14px;
+}
+
+.photo-name{
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.photo-role{
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.photo-zone{
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* ขวา: การ์ดรายละเอียด (scroll ได้) */
+.info-card{
+  padding: 18px;
+  max-height: 520px;     /* ✅ ทำให้เลื่อน */
+  overflow: auto;        /* ✅ เลื่อนขึ้นลง */
+}
+
+.info-title{
+  margin: 4px 0 6px;
+  text-align: center;    /* ✅ หัวข้อใหญ่กลางบน */
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.info-sub{
+  text-align: center;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.pill{
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: #f97316;   /* โทนป้ายส้มเหมือนตัวอย่าง */
+  color: #fff;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+.info-section{
+  margin-top: 10px;
+}
+
+.info-list{
+  margin: 0;
+  padding-left: 18px;
+}
+
+.info-list li{
+  margin: 8px 0;
+  line-height: 1.7;
+  font-weight: 700;      /* ✅ รายละเอียดย่อยหนา */
+}
+
+/* ถ้ามีบรรทัดย่อยใส่เป็นข้อความธรรมดา */
+.info-text{
+  color: #374151;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+/* responsive: จอเล็กให้เรียงบน-ล่าง */
+@media (max-width: 980px){
+  .candidate-modal-grid{
+    grid-template-columns: 1fr;
+  }
+  .photo-img{ height: 320px; }
+  .info-card{ max-height: 55vh; }
+}
