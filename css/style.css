@@ -361,92 +361,92 @@ body {
 /* -------------------------
    Candidate cards (หน้า list)
 -------------------------- */
-.candidates-grid .card{
+.candidates-grid .card {
   cursor: pointer;
 }
 
-.candidate-card{
+.candidate-card {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-.candidate-avatar{
+.candidate-avatar {
   width: 56px;
   height: 56px;
   border-radius: 999px;
   object-fit: cover;
-  border: 2px solid rgba(0,0,0,0.08);
+  border: 2px solid rgba(0, 0, 0, 0.08);
 }
 
-.candidate-role{
+.candidate-role {
   margin: 0 0 6px;
   font-size: 16px;
 }
 
-.candidate-meta{
+.candidate-meta {
   margin: 0;
   color: #6b7280;
   line-height: 1.6;
 }
 
 /* hover ให้ฟีลคลิกได้ */
-.candidates-grid .card:hover{
+.candidates-grid .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 26px rgba(0,0,0,0.06);
-  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* -------------------------
    Candidate Modal Layout
 -------------------------- */
-.candidate-modal{
+.candidate-modal {
   position: relative;
   max-width: 1040px;
   width: calc(100% - 24px);
   margin: 60px auto 0;
 }
 
-.candidate-modal-grid{
+.candidate-modal-grid {
   display: grid;
   grid-template-columns: 420px 1fr;
   gap: 18px;
 }
 
 /* การ์ดลอย มุมโค้ง */
-.floating-card{
+.floating-card {
   background: #fff;
-  border: 1px solid rgba(0,0,0,0.10);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
   overflow: hidden;
 }
 
 /* ซ้าย: การ์ดรูป */
-.photo-card{
+.photo-card {
   background: #0b2a45; /* โทนเข้มเหมือนตัวอย่าง */
   color: #fff;
 }
 
-.photo-top{
+.photo-top {
   padding: 14px 14px 0;
   display: flex;
   justify-content: flex-start;
 }
 
-.badge{
+.badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   font-weight: 600;
   font-size: 13px;
 }
 
-.badge-num{
+.badge-num {
   width: 36px;
   height: 32px;
   border-radius: 10px;
@@ -457,93 +457,163 @@ body {
   font-weight: 800;
 }
 
-.photo-img{
+.photo-img {
   width: 100%;
   height: 360px;
   object-fit: cover;
   display: block;
 }
 
-.photo-bottom{
+.photo-bottom {
   background: #fff;
   color: #111827;
   padding: 14px;
 }
 
-.photo-name{
+.photo-name {
   font-size: 22px;
   font-weight: 800;
   margin-bottom: 6px;
 }
 
-.photo-role{
+.photo-role {
   font-weight: 700;
   margin-bottom: 4px;
 }
 
-.photo-zone{
+.photo-zone {
   color: #6b7280;
   font-weight: 600;
 }
 
 /* ขวา: การ์ดรายละเอียด (scroll ได้) */
-.info-card{
+.info-card {
   padding: 18px;
-  max-height: 520px;     /* ✅ ทำให้เลื่อน */
-  overflow: auto;        /* ✅ เลื่อนขึ้นลง */
+  max-height: 520px; /* ✅ ทำให้เลื่อน */
+  overflow: auto; /* ✅ เลื่อนขึ้นลง */
 }
 
-.info-title{
+.info-title {
   margin: 4px 0 6px;
-  text-align: center;    /* ✅ หัวข้อใหญ่กลางบน */
+  text-align: center; /* ✅ หัวข้อใหญ่กลางบน */
   font-size: 28px;
   font-weight: 900;
 }
 
-.info-sub{
+.info-sub {
   text-align: center;
   color: #6b7280;
   font-weight: 600;
   margin-bottom: 14px;
 }
 
-.pill{
+.pill {
   display: inline-block;
   padding: 8px 12px;
   border-radius: 12px;
-  background: #f97316;   /* โทนป้ายส้มเหมือนตัวอย่าง */
+  background: #f97316; /* โทนป้ายส้มเหมือนตัวอย่าง */
   color: #fff;
   font-weight: 800;
   margin: 10px 0;
 }
 
-.info-section{
+.info-section {
   margin-top: 10px;
 }
 
-.info-list{
+.info-list {
   margin: 0;
   padding-left: 18px;
 }
 
-.info-list li{
+.info-list li {
   margin: 8px 0;
   line-height: 1.7;
-  font-weight: 700;      /* ✅ รายละเอียดย่อยหนา */
+  font-weight: 700; /* ✅ รายละเอียดย่อยหนา */
 }
 
 /* ถ้ามีบรรทัดย่อยใส่เป็นข้อความธรรมดา */
-.info-text{
+.info-text {
   color: #374151;
   line-height: 1.8;
   white-space: pre-line;
 }
 
 /* responsive: จอเล็กให้เรียงบน-ล่าง */
-@media (max-width: 980px){
-  .candidate-modal-grid{
+@media (max-width: 980px) {
+  .candidate-modal-grid {
     grid-template-columns: 1fr;
   }
-  .photo-img{ height: 320px; }
-  .info-card{ max-height: 55vh; }
+  .photo-img {
+    height: 320px;
+  }
+  .info-card {
+    max-height: 55vh;
+  }
+}
+
+/* ให้ modal เลื่อนได้ทั้งหน้า (โดยเฉพาะมือถือ) */
+.modal {
+  overflow-y: auto; /* ✅ modal เลื่อนขึ้นลงได้ */
+  -webkit-overflow-scrolling: touch; /* ✅ ลื่นบน iOS */
+  padding: 12px; /* กันชนขอบจอ */
+}
+
+/* กล่อง modal ของผู้สมัคร: ไม่ให้ติดบนเกินไป และไม่หลุดจอ */
+.candidate-modal {
+  margin: 12px auto; /* ✅ ไม่ดันลงเยอะ */
+  max-height: calc(100dvh - 24px); /* ✅ สูงสุดเท่าจอ (รองรับมือถือใหม่) */
+}
+
+/* fallback สำหรับบางเครื่องที่ไม่รองรับ dvh */
+@supports not (height: 100dvh) {
+  .candidate-modal {
+    max-height: calc(100vh - 24px);
+  }
+}
+
+/* ทำให้กริดไม่บังคับสูงเกิน */
+.candidate-modal-grid {
+  align-items: start;
+}
+
+/* มือถือ: เรียงบน-ล่าง และให้การ์ดไม่สูงเกินจอ */
+@media (max-width: 980px) {
+  .candidate-modal-grid {
+    grid-template-columns: 1fr; /* ✅ จาก 2 คอลัมน์ → 1 คอลัมน์ */
+    gap: 12px;
+  }
+
+  /* การ์ดซ้าย (รูป): จำกัดความสูงรูปไม่ให้กินจอทั้งหมด */
+  .photo-img {
+    height: min(44dvh, 360px); /* ✅ รูปไม่กินพื้นที่เกิน */
+  }
+  @supports not (height: 100dvh) {
+    .photo-img {
+      height: min(44vh, 360px);
+    }
+  }
+
+  /* การ์ดขวา (รายละเอียด): ไม่ fix สูงแบบเดิม ให้ยืดตามเนื้อหาได้ */
+  .info-card {
+    max-height: none; /* ✅ เอาเพดานเดิมออกในมือถือ */
+    overflow: visible; /* ✅ ไม่ตัด */
+  }
+
+  /* แต่ถ้าข้อมูลยาวมาก ให้เลื่อน “ภายในการ์ดขวา” ได้ด้วย */
+  .info-card {
+    max-height: 46dvh; /* ✅ มีพื้นที่เลื่อนดูรายละเอียด */
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  @supports not (height: 100dvh) {
+    .info-card {
+      max-height: 46vh;
+    }
+  }
+}
+
+/* เพิ่มความชัวร์: ป้องกันการ์ดลอยเกินขอบจอ */
+.floating-card {
+  max-width: 100%;
 }
