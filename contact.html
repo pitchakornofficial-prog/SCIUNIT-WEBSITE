@@ -65,6 +65,38 @@
           <p>Facebook / Instagram / TikTok<br />พรรค SCI UNIT</p>
         </article>
       </section>
+      <!-- ===== AI Chat (Offline Q&A) ===== -->
+      <div class="chat-widget" id="chatWidget">
+        <div class="chat-head">
+          <div class="chat-title">SCI UNIT Assistant</div>
+          <button class="chat-toggle" id="chatToggle" aria-label="ซ่อน/แสดงแชต">
+            —
+          </button>
+        </div>
+
+        <div class="chat-body" id="chatBody" aria-live="polite"></div>
+
+        <div class="chat-suggest" id="chatSuggest">
+          <button class="chip" data-q="นโยบายพรรคมีอะไรบ้าง">นโยบาย</button>
+          <button class="chip" data-q="ทำไมต้องเลือกพรรคเรา">
+            ทำไมเลือกเรา
+          </button>
+          <button class="chip" data-q="ติดต่อพรรค">ติดต่อ</button>
+          <button class="chip" data-q="วันเลือกตั้งวันไหน">วันเลือกตั้ง</button>
+        </div>
+
+        <form class="chat-input" id="chatForm">
+          <input
+            id="chatText"
+            type="text"
+            placeholder="พิมพ์คำถาม เช่น 'นโยบาย' หรือ 'ติดต่อ'..."
+            autocomplete="off"
+          />
+          <button type="submit">ส่ง</button>
+        </form>
+      </div>
+
+      <script src="js/chatbot.js"></script>
     </main>
 
     <script src="js/main.js"></script>

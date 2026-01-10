@@ -1122,3 +1122,131 @@ body::before {
   color: #2563eb; /* น้ำเงิน */
   letter-spacing: 0.3px;
 }
+/* บอท */
+/* ===== Chat Widget (Offline) ===== */
+.chat-widget {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: min(360px, calc(100% - 36px));
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+  z-index: 9999;
+  font-family: "Kanit", sans-serif;
+}
+
+.chat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.chat-title {
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.chat-toggle {
+  border: none;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  width: 34px;
+  height: 28px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.chat-body {
+  max-height: 280px;
+  overflow: auto;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bubble {
+  max-width: 92%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  line-height: 1.55;
+  font-size: 13.5px;
+  white-space: pre-line;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: #111827;
+  color: #fff;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.bubble.bot {
+  align-self: flex-start;
+  background: #fff;
+  color: #111827;
+}
+
+.chat-suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.chip {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: 12.5px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.chip:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.chat-input {
+  display: flex;
+  gap: 8px;
+  padding: 12px 14px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  outline: none;
+}
+
+.chat-input button {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #f3f4f6;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.chat-input button:hover {
+  background: #e5e7eb;
+}
+
+/* collapsed */
+.chat-widget.collapsed .chat-body,
+.chat-widget.collapsed .chat-input,
+.chat-widget.collapsed .chat-suggest {
+  display: none;
+}
