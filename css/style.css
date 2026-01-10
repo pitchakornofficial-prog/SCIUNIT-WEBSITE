@@ -960,3 +960,62 @@ body {
     width: 100%;
   }
 }
+
+.photo-card {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.photo-img {
+  width: 100%;
+  height: 420px; /* ปรับได้ */
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+/* ================================= */
+.bg-shape {
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(160px);
+  z-index: -1;
+  opacity: 0.35; /* ⬅ ลดความแรง */
+  pointer-events: none;
+}
+
+/* ชมพู – ขยับเข้ามาใกล้ content */
+.bg-shape.pink {
+  background: #f9a8d4;
+  top: -180px;
+  left: -80px; /* ⬅ ไม่ชิดขอบเกิน */
+}
+
+/* เหลือง – ล่างขวาแบบนุ่ม */
+.bg-shape.yellow {
+  background: #fde68a;
+  bottom: -200px;
+  right: -80px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.6),
+    transparent 60%
+  );
+  z-index: -2;
+}
+
+@media (max-width: 768px) {
+  .bg-shape {
+    width: 360px;
+    height: 360px;
+    filter: blur(140px);
+    opacity: 0.3;
+  }
+}

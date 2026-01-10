@@ -6,7 +6,7 @@
   const cmName = document.getElementById("cmName");
   const cmRole = document.getElementById("cmRole");
   const cmZone = document.getElementById("cmZone");
-  const cmNumber = document.getElementById("cmNumber");
+  // ❌ ลบ cmNumber ออก เพราะเราเอา "เลือกเบอร์" ออกจาก HTML แล้ว
 
   const cmTitle = document.getElementById("cmTitle");
   const cmArea = document.getElementById("cmArea");
@@ -15,23 +15,30 @@
   const cmMeta = document.getElementById("cmMeta");
 
   const openModal = (data) => {
+    // รูป
     cmPhoto.src = data.image || "";
+    cmPhoto.alt = data.name ? `รูปของ ${data.name}` : "รูปผู้สมัคร";
+
+    // ข้อความ
     cmName.textContent = data.name || "ชื่อผู้สมัคร";
     cmRole.textContent = data.role || "";
     cmZone.textContent = data.zone || "";
-    cmNumber.textContent = data.number || "1";
 
     cmTitle.textContent = data.title || "รายละเอียดผู้สมัคร";
     cmArea.textContent = [data.area, data.subarea].filter(Boolean).join(" • ");
-    cmMeta.textContent = data.meta || "";
 
     // reset lists
+    cmMeta.innerHTML = "";
     cmWork.innerHTML = "";
     cmEdu.innerHTML = "";
 
+    // parse arrays
+    const metaArr = safeParseArray(data.meta);
     const workArr = safeParseArray(data.work);
     const eduArr = safeParseArray(data.edu);
 
+    // render list items
+    metaArr.forEach((t) => cmMeta.appendChild(li(t)));
     workArr.forEach((t) => cmWork.appendChild(li(t)));
     eduArr.forEach((t) => cmEdu.appendChild(li(t)));
 
@@ -62,7 +69,6 @@
       const arr = JSON.parse(value);
       return Array.isArray(arr) ? arr : [];
     } catch {
-      // ถ้าคุณอยากพิมพ์แบบขึ้นบรรทัดใหม่ ก็รองรับให้ด้วย
       return String(value)
         .split("\n")
         .map((s) => s.trim())
@@ -78,7 +84,6 @@
         role: card.dataset.role,
         meta: card.dataset.meta,
         zone: card.dataset.zone,
-        number: card.dataset.number,
         image: card.dataset.image,
 
         title: card.dataset.title,
