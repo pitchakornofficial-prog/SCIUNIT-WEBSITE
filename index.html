@@ -55,12 +55,73 @@
           </p>
         </a>
       </section>
+      <section class="grid">
+        <!-- การ์ดเดิม 2 ใบของคุณ: ทีมผู้สมัคร / ไฮไลท์นโยบาย -->
+      </section>
+
+      <!-- ✅ การ์ดนับถอยหลังวันเลือกตั้ง -->
+      <article class="card countdown-card">
+        <h3>นับถอยหลังวันเลือกตั้ง</h3>
+        <p class="countdown-sub">เหลือเวลาอีก</p>
+
+        <div class="countdown-box" id="countdown">
+          <div class="cd-item">
+            <div class="cd-num" id="cdDays">0</div>
+            <div class="cd-label">วัน</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-num" id="cdHours">0</div>
+            <div class="cd-label">ชั่วโมง</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-num" id="cdMins">0</div>
+            <div class="cd-label">นาที</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-num" id="cdSecs">0</div>
+            <div class="cd-label">วินาที</div>
+          </div>
+        </div>
+
+        <p class="countdown-note" id="cdNote">
+          วันเลือกตั้ง: (ใส่วันที่ของคุณ)
+        </p>
+      </article>
+
+      <script src="js/main.js"></script>
+      <script src="js/countdown.js"></script>
     </main>
+
     <footer class="footer">
       © 2026 SCI UNIT. เว็บไซต์นี้เป็นทรัพย์สินทางปัญญาของพรรค SCI UNIT
       แต่เพียงผู้เดียว
     </footer>
 
     <script src="js/main.js"></script>
+    <!-- Announcement Modal (หน้าแรก) -->
+    <div class="modal" id="announceModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="true"></div>
+
+      <div
+        class="announce-box"
+        role="dialog"
+        aria-modal="true"
+        aria-label="ประกาศสำคัญ"
+      >
+        <button class="modal-close" data-close="true" aria-label="ปิด">
+          ✕
+        </button>
+
+        <!-- ใส่รูปประกาศวันเลือกตั้งของคุณตรงนี้ -->
+        <img
+          class="announce-img"
+          src="images/date.png"
+          alt="ประกาศวันเลือกตั้ง"
+        />
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/announce.js"></script>
   </body>
 </html>

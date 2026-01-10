@@ -626,3 +626,186 @@ body {
   color: #6b7280;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
+
+/* Announcement Modal box */
+.announce-box {
+  position: relative;
+  max-width: 720px;
+  width: calc(100% - 24px);
+  margin: 80px auto 0;
+
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* รูปประกาศให้พอดี */
+.announce-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* มือถือ: ให้กล่องไม่หลุดจอ */
+@media (max-width: 600px) {
+  .announce-box {
+    margin: 20px auto 0;
+  }
+}
+
+.countdown-card h3 {
+  margin-bottom: 6px;
+}
+
+.countdown-sub {
+  margin: 0 0 14px;
+  color: #6b7280;
+}
+
+.countdown-box {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.cd-item {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 12px 10px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.cd-num {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.cd-label {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.countdown-note {
+  margin: 14px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* มือถือให้เรียง 2x2 */
+@media (max-width: 520px) {
+  .countdown-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ✅ Popup ประกาศหน้าแรก: ขนาดพอดี + ไม่ติดขอบจอ */
+.announce-box {
+  position: relative;
+  width: min(520px, calc(100% - 32px)); /* ไม่เกิน 520 และมีขอบ */
+  margin: 28px auto; /* มีระยะห่างบน-ล่าง */
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  padding: 14px; /* ✅ กันรูปชิดขอบทุกด้าน */
+  max-height: calc(100dvh - 56px); /* ✅ ไม่สูงเกินจอ */
+}
+
+@supports not (height: 100dvh) {
+  .announce-box {
+    max-height: calc(100vh - 56px);
+  }
+}
+
+/* ✅ รูปประกาศ: ไม่ครอป ไม่ล้น จบในกรอบ */
+.announce-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70dvh; /* ✅ รูปไม่สูงเกิน */
+  object-fit: contain; /* ✅ ไม่โดนครอป */
+}
+
+@supports not (height: 100dvh) {
+  .announce-img {
+    max-height: 70vh;
+  }
+}
+
+/* ✅ มือถือ: ลดสูงลงอีกนิดเพื่อไม่ชนขอบ */
+@media (max-width: 600px) {
+  .announce-box {
+    width: calc(100% - 24px);
+    margin: 16px auto;
+    padding: 12px;
+    max-height: calc(100dvh - 32px);
+  }
+  .announce-img {
+    max-height: 62dvh;
+  }
+  @supports not (height: 100dvh) {
+    .announce-box {
+      max-height: calc(100vh - 32px);
+    }
+    .announce-img {
+      max-height: 62vh;
+    }
+  }
+}
+/* Popup ประกาศ: ให้รูปเป็นตัวกล่องเลย */
+.announce-box {
+  position: relative;
+  width: min(520px, 92vw); /* กว้างพอดีจอ */
+  margin: 24px auto;
+  background: transparent; /* ❌ ไม่เอาพื้นขาว */
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+
+  padding: 0; /* ❌ สำคัญ: เอา padding ออก */
+  max-height: 90dvh;
+}
+
+/* รูป = เต็ม popup */
+.announce-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 90dvh;
+  object-fit: cover; /* ✅ เติมพื้นที่ให้เต็ม */
+}
+
+/* ปุ่ม X ลอยบนรูป */
+.announce-box .modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 10;
+
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 999px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+}
+@media (max-width: 600px) {
+  .announce-box {
+    width: 94vw;
+    max-height: 88dvh;
+    margin: 16px auto;
+  }
+
+  .announce-img {
+    max-height: 88dvh;
+  }
+}
