@@ -1019,3 +1019,41 @@ body::before {
     opacity: 0.3;
   }
 }
+
+/* ===== Fix Timeline on small screens: all cards on the same side (right) ===== */
+@media (max-width: 820px) {
+  /* ให้เส้นไทม์ไลน์ไปอยู่ซ้าย */
+  .tl-line {
+    left: 18px;
+    transform: none;
+  }
+
+  /* ทำให้โครงสร้างเหลือ 2 คอลัมน์: (เส้น/จุด) + (การ์ด) */
+  .tl-item {
+    grid-template-columns: 36px 1fr;
+    grid-template-rows: auto;
+    column-gap: 14px;
+  }
+
+  /* จุดแดงให้ไปอยู่คอลัมน์ซ้าย */
+  .tl-dot {
+    grid-column: 1;
+    justify-self: center;
+    margin-top: 18px;
+  }
+
+  /* การ์ดทุกใบให้ไปอยู่คอลัมน์ขวาเหมือนกัน */
+  .tl-card {
+    grid-column: 2 !important;
+    justify-self: start !important;
+    width: 100%;
+    max-width: 520px; /* ปรับได้: 480/520/600 */
+  }
+
+  /* override เงื่อนไข left/right ไม่ให้แยกฝั่งอีก */
+  .tl-item.left .tl-card,
+  .tl-item.right .tl-card {
+    grid-column: 2 !important;
+    justify-self: start !important;
+  }
+}
