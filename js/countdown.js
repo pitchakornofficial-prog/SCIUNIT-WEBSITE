@@ -8,16 +8,19 @@
   const secsEl = document.getElementById("cdSecs");
   const noteEl = document.getElementById("cdNote");
 
+  // ✅ กล่องที่จะติดคลาส urgent (เลือก 1 ตัวตามที่คุณใส่ไว้)
+  const box =
+    document.getElementById("countdownCard") ||
+    document.getElementById("countdownBox");
+
   if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
   const target = new Date(ELECTION_DATE).getTime();
-
   const pad2 = (n) => String(n).padStart(2, "0");
 
-  const formatThaiDate = (d) => {
-    // แสดงวันที่แบบไทยแบบง่าย ๆ
+  const formatThaiDate = (ms) => {
     const opts = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(d).toLocaleDateString("th-TH", opts);
+    return new Date(ms).toLocaleDateString("th-TH", opts);
   };
 
   if (noteEl) {
@@ -26,16 +29,30 @@
     )} 09:00 น. - 17:00 น.`;
   }
 
+  // ใช้ไว้เช็ค “เลขเปลี่ยน” เพื่อใส่ pop
+  let prev = { d: "", h: "", m: "", s: "" };
+
+  const popIfChanged = (el, next, key) => {
+    if (prev[key] !== next) {
+      el.textContent = next;
+      el.classList.remove("pop"); // reset
+      void el.offsetWidth; // force reflow
+      el.classList.add("pop");
+      prev[key] = next;
+    }
+  };
+
   const tick = () => {
     const now = Date.now();
     let diff = target - now;
 
     if (diff <= 0) {
       daysEl.textContent = "0";
-      hoursEl.textContent = "0";
-      minsEl.textContent = "0";
-      secsEl.textContent = "0";
+      hoursEl.textContent = "00";
+      minsEl.textContent = "00";
+      secsEl.textContent = "00";
       if (noteEl) noteEl.textContent = "ถึงวันเลือกตั้งแล้ว";
+      if (box) box.classList.remove("urgent");
       return;
     }
 
@@ -45,10 +62,22 @@
     const mins = Math.floor((sec % 3600) / 60);
     const secs = sec % 60;
 
-    daysEl.textContent = String(days);
-    hoursEl.textContent = pad2(hours);
-    minsEl.textContent = pad2(mins);
-    secsEl.textContent = pad2(secs);
+    const dStr = String(days);
+    const hStr = pad2(hours);
+    const mStr = pad2(mins);
+    const sStr = pad2(secs);
+
+    // ✅ อัปเดต + เด้งเมื่อเปลี่ยน
+    popIfChanged(daysEl, dStr, "d");
+    popIfChanged(hoursEl, hStr, "h");
+    popIfChanged(minsEl, mStr, "m");
+    popIfChanged(secsEl, sStr, "s");
+
+    // ✅ โหมดใกล้วันเลือกตั้ง
+    if (box) {
+      if (days < 3) box.classList.add("urgent");
+      else box.classList.remove("urgent");
+    }
   };
 
   tick();

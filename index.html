@@ -17,6 +17,7 @@
           <div>
             <span class="title">SCI UNIT</span>
             <span class="sub">พิทักษ์รักษาสิทธิ์ นำพาวิทยาก้าวไกล</span>
+            
           </div>
         </div>
 
@@ -35,6 +36,12 @@
       <section class="hero">
         <h1>หน้าแรก</h1>
         <p>ยินดีต้อนรับสู่เว็บไซต์อย่างเป็นทางการของพรรค SCI UNIT</p>
+        <p class="type-line">
+  พวกเราพรรค SCI UNIT <span class="type-accent">พร้อมที่จะ</span>
+  <span id="typeTarget"></span><span class="cursor">|</span>
+  <!-- <p id="miniMotto" class="mini-motto"></p> -->
+</p>
+
       </section>
 
       <section class="grid">
@@ -58,35 +65,36 @@
       <section class="grid">
         <!-- การ์ดเดิม 2 ใบของคุณ: ทีมผู้สมัคร / ไฮไลท์นโยบาย -->
       </section>
+      <section class="card countdown-card" id="countdownCard"></section>
+        <!-- ✅ การ์ดนับถอยหลังวันเลือกตั้ง -->
+        <article class="card countdown-card">
+          <h3>นับถอยหลังวันเลือกตั้ง</h3>
+          <p class="countdown-sub">เหลือเวลาอีก</p>
 
-      <!-- ✅ การ์ดนับถอยหลังวันเลือกตั้ง -->
-      <article class="card countdown-card">
-        <h3>นับถอยหลังวันเลือกตั้ง</h3>
-        <p class="countdown-sub">เหลือเวลาอีก</p>
+          <div class="countdown-box" id="countdown">
+            <div class="cd-item">
+              <div class="cd-num" id="cdDays">0</div>
+              <div class="cd-label">วัน</div>
+            </div>
+            <div class="cd-item">
+              <div class="cd-num" id="cdHours">0</div>
+              <div class="cd-label">ชั่วโมง</div>
+            </div>
+            <div class="cd-item">
+              <div class="cd-num" id="cdMins">0</div>
+              <div class="cd-label">นาที</div>
+            </div>
+            <div class="cd-item">
+              <div class="cd-num" id="cdSecs">0</div>
+              <div class="cd-label">วินาที</div>
+            </div>
+          </div>
 
-        <div class="countdown-box" id="countdown">
-          <div class="cd-item">
-            <div class="cd-num" id="cdDays">0</div>
-            <div class="cd-label">วัน</div>
-          </div>
-          <div class="cd-item">
-            <div class="cd-num" id="cdHours">0</div>
-            <div class="cd-label">ชั่วโมง</div>
-          </div>
-          <div class="cd-item">
-            <div class="cd-num" id="cdMins">0</div>
-            <div class="cd-label">นาที</div>
-          </div>
-          <div class="cd-item">
-            <div class="cd-num" id="cdSecs">0</div>
-            <div class="cd-label">วินาที</div>
-          </div>
-        </div>
-
-        <p class="countdown-note" id="cdNote">
-          วันเลือกตั้ง: (ใส่วันที่ของคุณ)
-        </p>
-      </article>
+          <p class="countdown-note" id="cdNote">
+            วันเลือกตั้ง: (ใส่วันที่ของคุณ)
+          </p>
+        </article>
+      </section>
 
       <script src="js/main.js"></script>
       <script src="js/countdown.js"></script>
@@ -123,5 +131,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/announce.js"></script>
+    <script src="js/typewriter.js"></script>
+    <script src="js/mini-motto.js"></script>
   </body>
 </html>
