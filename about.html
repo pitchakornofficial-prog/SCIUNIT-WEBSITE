@@ -63,7 +63,82 @@
           <h3>พันธกิจ</h3>
           <p>อธิบายสิ่งที่พรรคจะลงมือทำให้เกิดขึ้นจริง</p>
         </article>
+        <article class="card tl">
+          <!-- หัวการ์ดใหญ่ (กดเพื่อพับ/ขยายทั้ง Timeline) -->
+          <div class="tl-header" id="tlToggle">
+            <div>
+              <h3 class="tl-title">ความเป็นมาของพรรค (Timeline)</h3>
+              <p class="tl-sub">
+                เลื่อนดูจากบนลงล่าง • กดเพื่อดูรายละเอียดทั้งหมด
+              </p>
+            </div>
+            <span class="tl-arrow">▾</span>
+          </div>
+
+          <!-- เนื้อหา Timeline (เริ่มต้นถูกพับ) -->
+          <div class="tl-body tl-collapsed" id="tlBody">
+            <div class="tl-line"></div>
+
+            <!-- ITEM 1 -->
+            <div class="tl-item left tl-item-collapsed">
+              <span class="tl-dot"></span>
+
+              <div class="tl-card">
+                <div class="tl-date">8 มกราคม 2569</div>
+                <div class="tl-head">ประชุมพรรคครั้งแรก</div>
+                <div class="tl-summary">
+                  เริ่มต้นก่อตั้งพรรค SCI UNIT อย่างเป็นทางการ
+                </div>
+
+                <img class="tl-img" src="images/800450.png" alt="เหตุการณ์" />
+
+                <div class="tl-detail">
+                  รายละเอียดการประชุมก่อตั้งพรรค และแผนงานในอนาคต
+                  <a
+                    class="tl-ref"
+                    href="https://example.com/source1"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    ลิงก์อ้างอิง
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ITEM 2 -->
+            <div class="tl-item right tl-item-collapsed">
+              <span class="tl-dot"></span>
+
+              <div class="tl-card">
+                <div class="tl-date">ธันวาคม 2567</div>
+                <div class="tl-head">เริ่มต้นรวมทีม</div>
+                <div class="tl-summary">
+                  รวบรวมทีมงานและแบ่งหน้าที่เบื้องต้น
+                </div>
+
+                <img class="tl-img" src="images/600800.png" alt="เหตุการณ์" />
+
+                <div class="tl-detail">
+                  รายละเอียดการรวมทีม การแบ่งหน้าที่ และการทำงานร่วมกัน
+
+                  <a
+                    class="tl-ref"
+                    href="https://example.com/source2"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    ลิงก์อ้างอิง
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <script src="js/about-timeline.js"></script>
       </section>
+
       <!-- About Modal -->
       <div class="modal" id="aboutModal" aria-hidden="true">
         <div class="modal-backdrop" data-close="true"></div>

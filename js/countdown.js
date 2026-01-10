@@ -1,6 +1,6 @@
 (function () {
   // ✅ แก้วันเลือกตั้งตรงนี้ (รูปแบบ: YYYY-MM-DDTHH:mm:ss+07:00)
-  const ELECTION_DATE = "2026-02-22T09:00:00+07:00";
+  const ELECTION_DATE = "2026-02-27T09:00:00+07:00";
 
   const daysEl = document.getElementById("cdDays");
   const hoursEl = document.getElementById("cdHours");
@@ -35,7 +35,7 @@
       hoursEl.textContent = "0";
       minsEl.textContent = "0";
       secsEl.textContent = "0";
-      if (noteEl) noteEl.textContent = "ถึงวันเลือกตั้งแล้ว ✅";
+      if (noteEl) noteEl.textContent = "ถึงวันเลือกตั้งแล้ว";
       return;
     }
 
