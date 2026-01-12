@@ -1,50 +1,96 @@
-(function () {
+(function initContactSystem() {
+  const contactData = [
+    {
+      title: "ช่องทางติดต่อ",
+      shortDesc: "โทร : 093-526-2414<br />อีเมล : smosci.sciunit@gmail.com",
+      detail: "โทร: 093-526-2414\nอีเมล: smosci.sciunit@gmail.com",
+      links: {},
+    },
+    {
+      title: "ติดตามเรา",
+      shortDesc: "Facebook / Instagram / TikTok<br />พรรค SCI UNIT",
+      detail: "เลือกช่องทางที่ต้องการติดตามได้เลย",
+      links: {
+        facebook: "https://www.facebook.com/myscienceubu",
+        instagram: "https://www.instagram.com/smo.science_ubu/",
+        tiktok: "https://www.tiktok.com/@smovidyaubu.official",
+      },
+    },
+  ];
+
+  const container = document.getElementById("contact-container");
+
+  if (container) {
+    const cardsHTML = contactData
+      .map(
+        (item, index) => `
+      <article class="card contact-item" data-index="${index}">
+        <h3>${item.title}</h3>
+        <p>${item.shortDesc}</p>
+      </article>
+    `
+      )
+      .join("");
+
+    container.insertAdjacentHTML("afterbegin", cardsHTML);
+  }
+
+  const modalHTML = `
+    <div class="modal" id="contactModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+        <button class="modal-close" data-close="true" aria-label="ปิด">✕</button>
+        <h2 id="contactModalTitle">หัวข้อ</h2>
+        <div class="modal-content" id="contactModalContent"></div>
+        
+        <div class="social-actions" id="socialActions" style="display:none;">
+          <a class="social-card" id="btnFacebook" target="_blank" rel="noopener">Facebook</a>
+          <a class="social-card" id="btnInstagram" target="_blank" rel="noopener">Instagram</a>
+          <a class="social-card" id="btnTikTok" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.insertAdjacentHTML("beforeend", modalHTML);
+
   const modal = document.getElementById("contactModal");
   const titleEl = document.getElementById("contactModalTitle");
   const contentEl = document.getElementById("contactModalContent");
-
   const socialWrap = document.getElementById("socialActions");
-  const btnFacebook = document.getElementById("btnFacebook");
-  const btnInstagram = document.getElementById("btnInstagram");
-  const btnTikTok = document.getElementById("btnTikTok");
+  const btnFb = document.getElementById("btnFacebook");
+  const btnIg = document.getElementById("btnInstagram");
+  const btnTt = document.getElementById("btnTikTok");
 
-  if (!modal || !titleEl || !contentEl) return;
+  const openModal = (index) => {
+    const data = contactData[index];
+    if (!data) return;
 
-  const openModal = ({ title, detail, fb, ig, tt }) => {
-    titleEl.textContent = title || "ติดต่อ & ติดตามเรา";
-    contentEl.textContent = detail || "-";
+    titleEl.textContent = data.title;
+    contentEl.innerText = data.detail;
+
+    const l = data.links || {};
+    const hasAny = l.facebook || l.instagram || l.tiktok;
+
+    socialWrap.style.display = hasAny ? "flex" : "none";
+
+    if (l.facebook) {
+      btnFb.href = l.facebook;
+      btnFb.style.display = "inline-flex";
+    } else btnFb.style.display = "none";
+
+    if (l.instagram) {
+      btnIg.href = l.instagram;
+      btnIg.style.display = "inline-flex";
+    } else btnIg.style.display = "none";
+
+    if (l.tiktok) {
+      btnTt.href = l.tiktok;
+      btnTt.style.display = "inline-flex";
+    } else btnTt.style.display = "none";
+
     modal.classList.add("show");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-
-    // ตั้งค่า/ซ่อน-โชว์ปุ่ม social
-    const hasAny = !!(fb || ig || tt);
-    if (hasAny) {
-      socialWrap.style.display = "flex";
-
-      if (fb) {
-        btnFacebook.href = fb;
-        btnFacebook.style.display = "inline-flex";
-      } else {
-        btnFacebook.style.display = "none";
-      }
-
-      if (ig) {
-        btnInstagram.href = ig;
-        btnInstagram.style.display = "inline-flex";
-      } else {
-        btnInstagram.style.display = "none";
-      }
-
-      if (tt) {
-        btnTikTok.href = tt;
-        btnTikTok.style.display = "inline-flex";
-      } else {
-        btnTikTok.style.display = "none";
-      }
-    } else {
-      socialWrap.style.display = "none";
-    }
   };
 
   const closeModal = () => {
@@ -53,78 +99,17 @@
     document.body.style.overflow = "";
   };
 
-  // คลิกการ์ดเพื่อเปิด
-  document.querySelectorAll(".contact-item").forEach((card) => {
-    card.addEventListener("click", () => {
-      openModal({
-        title: card.dataset.title,
-        detail: card.dataset.detail,
-        fb: card.dataset.facebook,
-        ig: card.dataset.instagram,
-        tt: card.dataset.tiktok,
-      });
+  if (container) {
+    container.querySelectorAll(".contact-item").forEach((card) => {
+      card.addEventListener("click", () => openModal(card.dataset.index));
     });
-  });
+  }
 
-  // คลิก backdrop / X เพื่อปิด
   modal.addEventListener("click", (e) => {
-    if (e.target?.dataset?.close === "true") closeModal();
+    if (e.target.dataset.close === "true") closeModal();
   });
 
-  // ESC ปิด
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modal.classList.contains("show")) closeModal();
   });
-})();
-
-(function () {
-  const el = document.getElementById("typeTarget");
-  if (!el) return;
-
-  // 🔁 คำที่ต้องการให้พิมพ์สลับไปเรื่อย ๆ
-  const words = [
-    "รับฟังทุกความคิดเห็น",
-    "เปิดรับทุกข้อเสนอ",
-    "ติดต่อได้ง่าย เข้าถึงได้จริง",
-    "ติดตามเราได้ทุกช่องทาง",
-    "SCI UNIT ใกล้คุณเสมอ",
-  ];
-
-  let wordIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
-
-  const typeSpeed = 70; // ความเร็วพิมพ์
-  const deleteSpeed = 40; // ความเร็วลบ
-  const pauseAfterType = 900; // หน่วงหลังพิมพ์จบ
-  const pauseAfterDelete = 250;
-
-  function tick() {
-    const current = words[wordIndex];
-
-    if (!deleting) {
-      // พิมพ์เพิ่มทีละตัว
-      charIndex++;
-      el.textContent = current.slice(0, charIndex);
-
-      if (charIndex === current.length) {
-        deleting = true;
-        return setTimeout(tick, pauseAfterType);
-      }
-      return setTimeout(tick, typeSpeed);
-    } else {
-      // ลบทีละตัว
-      charIndex--;
-      el.textContent = current.slice(0, charIndex);
-
-      if (charIndex === 0) {
-        deleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        return setTimeout(tick, pauseAfterDelete);
-      }
-      return setTimeout(tick, deleteSpeed);
-    }
-  }
-
-  tick();
 })();

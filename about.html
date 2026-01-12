@@ -3,52 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About | SCI UNIT</title>
+    <title>About | พรรคนักศึกษาคณะวิทยาศาสตร์</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <div class="bg-shape pink"></div>
     <div class="bg-shape yellow"></div>
-    <div class="top-nav-wrap">
-      <nav class="top-nav" aria-label="เมนูหลัก">
-        <div class="brand">
-          <!-- <img src="images/logo.png" alt="โลโก้พรรค" /> -->
-          <div>
-            <span class="title">SCI UNIT</span>
-            <span class="sub">พิทักษ์รักษาสิทธิ์ นำพาวิทยาก้าวไกล</span>
-          </div>
-        </div>
 
-        <div class="nav-links">
-          <a class="nav-link" href="index.html">หน้าแรก</a>
-          <a class="nav-link" href="about.html">เกี่ยวกับพรรค</a>
-          <a class="nav-link" href="candidates.html">ทีมผู้สมัคร</a>
-          <a class="nav-link" href="policies.html">นโยบายพรรค</a>
-          <a class="nav-link" href="why-us.html">ทำไมต้องเลือกพรรคเรา</a>
-          <a class="nav-link" href="contact.html">ติดต่อ & สอบถาม</a>
-        </div>
-      </nav>
-    </div>
+    <div id="navbar-placeholder"></div>
 
     <main class="page">
       <section class="hero">
         <h1>เกี่ยวกับพรรค</h1>
         <p>SCI UNIT Together We Move Forward | เราจะก้าวไปข้างหน้าด้วยกัน</p>
         <p class="type-line">
-          พรรคนี้ <span class="type-accent">มีอยู่ว่า</span>
+          สิ่งที่ยึดมั่นของพรรคเรา <span class="type-accent">คือ</span>
           <span id="typeTarget"></span><span class="cursor">|</span>
         </p>
       </section>
+
       <section class="grid">
         <article
           class="card about-item"
           data-title="วิสัยทัศน์"
-          data-detail="วิสัยทัศน์ พรรค SCI UNIT มุ่งมั่นพิทักษ์รักษาสิทธิ เสรีภาพ และความเท่าเทียมของนักศึกษาคณะวิทยาศาสตร์
-พร้อมทั้งพัฒนาคุณภาพชีวิตและสภาพแวดล้อมในการเรียนรู้
-ผ่านกิจกรรมที่สร้างสรรค์และเป็นประโยชน์แก่นักศึกษา
-เปิดพื้นที่ให้ทุกเสียงได้มีส่วนร่วม และเสริมสร้างความสามัคคีในคณะ
-เพื่อพานักศึกษาคณะวิทยาศาสตร์ก้าวไปข้างหน้าอย่างมั่นคงและยั่งยืน
-ภายใต้แนวคิด Together We Move Forward"
+          data-detail="วิสัยทัศน์ พรรค SCI UNIT มุ่งมั่นพิทักษ์รักษาสิทธิ เสรีภาพ และความเท่าเทียมของนักศึกษาคณะวิทยาศาสตร์ พร้อมทั้งพัฒนาคุณภาพชีวิตและสภาพแวดล้อมในการเรียนรู้ ผ่านกิจกรรมที่สร้างสรรค์และเป็นประโยชน์แก่นักศึกษา เปิดพื้นที่ให้ทุกเสียงได้มีส่วนร่วม และเสริมสร้างความสามัคคีในคณะ เพื่อพานักศึกษาคณะวิทยาศาสตร์ก้าวไปข้างหน้าอย่างมั่นคงและยั่งยืน ภายใต้แนวคิด Together We Move Forward"
         >
           <h3>วิสัยทัศน์</h3>
           <p>
@@ -60,114 +38,22 @@
         <article
           class="card about-item"
           data-title="พันธกิจ"
-          data-detail="อธิบายสิ่งที่พรรคจะลงมือทำให้เกิดขึ้นจริง
-- (เติมข้อ 1)
-- (เติมข้อ 2)
-- (เติมข้อ 3)"
+          data-detail="รายละเอียด..."
         >
           <h3>พันธกิจ</h3>
           <p>อธิบายสิ่งที่พรรคจะลงมือทำให้เกิดขึ้นจริง</p>
         </article>
-        <article class="card tl">
-          <!-- หัวการ์ดใหญ่ (กดเพื่อพับ/ขยายทั้ง Timeline) -->
-          <div class="tl-header" id="tlToggle">
-            <div>
-              <h3 class="tl-title">ความเป็นมาของพรรค (Timeline)</h3>
-              <p class="tl-sub">
-                เลื่อนดูจากบนลงล่าง • กดเพื่อดูรายละเอียดทั้งหมด
-              </p>
-            </div>
-            <span class="tl-arrow">▾</span>
-          </div>
-
-          <!-- เนื้อหา Timeline (เริ่มต้นถูกพับ) -->
-          <div class="tl-body tl-collapsed" id="tlBody">
-            <div class="tl-line"></div>
-
-            <!-- ITEM 1 -->
-            <div class="tl-item left tl-item-collapsed">
-              <span class="tl-dot"></span>
-
-              <div class="tl-card">
-                <div class="tl-date">8 มกราคม 2569</div>
-                <div class="tl-head">ประชุมพรรคครั้งแรก</div>
-                <div class="tl-summary">
-                  เริ่มต้นก่อตั้งพรรค SCI UNIT อย่างเป็นทางการ
-                </div>
-
-                <img class="tl-img" src="images/800450.png" alt="เหตุการณ์" />
-
-                <div class="tl-detail">
-                  รายละเอียดการประชุมก่อตั้งพรรค และแผนงานในอนาคต
-                  <a
-                    class="tl-ref"
-                    href="https://example.com/source1"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    ลิงก์อ้างอิง
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- ITEM 2 -->
-            <div class="tl-item right tl-item-collapsed">
-              <span class="tl-dot"></span>
-
-              <div class="tl-card">
-                <div class="tl-date">ธันวาคม 2567</div>
-                <div class="tl-head">เริ่มต้นรวมทีม</div>
-                <div class="tl-summary">
-                  รวบรวมทีมงานและแบ่งหน้าที่เบื้องต้น
-                </div>
-
-                <img class="tl-img" src="images/600800.png" alt="เหตุการณ์" />
-
-                <div class="tl-detail">
-                  รายละเอียดการรวมทีม การแบ่งหน้าที่ และการทำงานร่วมกัน
-
-                  <a
-                    class="tl-ref"
-                    href="https://example.com/source2"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    ลิงก์อ้างอิง
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <script src="js/about-timeline.js"></script>
       </section>
-
-      <!-- About Modal -->
-      <div class="modal" id="aboutModal" aria-hidden="true">
-        <div class="modal-backdrop" data-close="true"></div>
-
-        <div
-          class="modal-box"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="aboutModalTitle"
-        >
-          <button class="modal-close" data-close="true" aria-label="ปิด">
-            ✕
-          </button>
-          <h2 id="aboutModalTitle">หัวข้อ</h2>
-          <div class="modal-content" id="aboutModalContent"></div>
-        </div>
-      </div>
+      <section class="timeline-container" style="margin-top: 1rem">
+        <div id="timeline-section"></div>
+      </section>
     </main>
-    <footer class="footer">
-      © 2026 SCI UNIT. เว็บไซต์นี้เป็นทรัพย์สินทางปัญญาของพรรค SCI UNIT
-      แต่เพียงผู้เดียว คณะวิทยาศาสตร์ มหาวิทยาลัยอุบลราชธานี
-    </footer>
-    <script src="js/guard.js"></script>
+
+    <footer class="footer"></footer>
+
     <script src="js/main.js"></script>
+    <script src="js/about-timeline.js"></script>
     <script src="js/about-modal.js"></script>
+    <script src="js/typewriter.js"></script>
   </body>
 </html>
