@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "SCI UNIT",
+  "short_name": "SCI UNIT พรรคนักศึกษาคณะวิทยาศาสตร์ มุ่งเน้นนโยบายจากเสียงของนักศึกษา โปร่งใส ทำงานเป็นทีม และผลักดันกิจกรรมที่เข้าถึงได้",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
