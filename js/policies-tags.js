@@ -9,24 +9,21 @@
       setTimeout(() => resolve(waitForCards(tries + 1)), 100);
     });
 
-  // ===== 1) Map แท็กให้แต่ละนโยบาย (ตาม index ใน policiesData เดิม) =====
   const TAGS_BY_INDEX = {
-    0: ["กิจกรรม", "ความสามัคคี", "นักศึกษาทั่วไป"],
-    1: ["จิตอาสา", "กยศ.", "กิจกรรม"],
-    2: ["ทักษะ", "ความมั่นใจ", "การสื่อสาร"],
-    3: ["เสียงนักศึกษา", "รับฟัง", "ช่วยเหลือ"],
-    4: ["สิทธิ", "ความเท่าเทียม", "นักศึกษาทั่วไป"],
-    5: ["การอ่าน", "ความปลอดภัย", "สภาพแวดล้อม"],
-    6: ["กิจกรรม", "สนับสนุน", "นักศึกษาทั่วไป"],
+    0: ["กิจกรรม", "ความสามัคคี"],
+    1: ["จิตอาสา", "กยศ."],
+    2: ["ความมั่นใจ", "การสื่อสาร"],
+    3: ["รับฟัง", "ปัญหานักศึกษา"],
+    4: ["สิทธิ", "ความเท่าเทียม"],
+    5: ["การอ่าน", "ความปลอดภัย"],
+    6: ["สนับสนุน", "กิจกรรมนักศึกษา"],
   };
 
-  // ===== 2) Inject CSS (แถบแท็กเลื่อนซ้าย-ขวา) =====
   function injectStyleOnce() {
     if (document.getElementById("policyTagsStyle")) return;
     const style = document.createElement("style");
     style.id = "policyTagsStyle";
     style.textContent = `
-      /* ===== Horizontal Tags Bar (scroll X only) ===== */
       .policy-tags-shell{
         margin: 12px 0 14px;
       }
@@ -34,20 +31,19 @@
       .policy-tags-bar{
         display:flex;
         gap:8px;
-        flex-wrap: nowrap;            /* ✅ ไม่ให้ขึ้นบรรทัดใหม่ */
-        overflow-x: auto;             /* ✅ เลื่อนซ้าย-ขวา */
+        flex-wrap: nowrap;            
+        overflow-x: auto;             
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         padding: 4px 2px 10px;
         scroll-behavior: smooth;
       }
 
-      /* ซ่อน scrollbar (ยังเลื่อนได้) */
       .policy-tags-bar::-webkit-scrollbar { height: 0px; }
       .policy-tags-bar { scrollbar-width: none; }
 
       .policy-tag-btn{
-        flex: 0 0 auto;               /* ✅ ไม่ยืด */
+        flex: 0 0 auto;               
         border: 1px solid rgba(0,0,0,.10);
         background: rgba(0,0,0,.04);
         padding: 8px 10px;
@@ -55,7 +51,7 @@
         font-size: 12px;
         font-weight: 800;
         cursor:pointer;
-        white-space: nowrap;          /* ✅ ไม่ตัดบรรทัด */
+        white-space: nowrap;          
         transition: transform 140ms ease, background 140ms ease, box-shadow 140ms ease;
         user-select: none;
       }
@@ -71,7 +67,6 @@
         box-shadow: 0 10px 22px rgba(255,122,0,.22);
       }
 
-      /* ===== Tags inside cards ===== */
       .policy-tags{
         display:flex;
         gap:6px;
@@ -89,14 +84,12 @@
         opacity: .9;
       }
 
-      /* ===== Filter effect: dim (ยังเห็นทุกใบ) ===== */
       .policy-item.is-dim{
         opacity: .35;
         filter: grayscale(0.2);
         transform: none !important;
       }
 
-      /* ===== Tags in Modal ===== */
       .modal-tags{
         display:flex;
         gap:6px;
@@ -116,7 +109,6 @@
     document.head.appendChild(style);
   }
 
-  // ===== 3) ใส่แท็กให้การ์ด และทำ dataset =====
   function attachTagsToCards() {
     const cards = Array.from(
       document.querySelectorAll("#policies-container .policy-item")
@@ -141,13 +133,11 @@
     return Array.from(tagSet).sort((a, b) => a.localeCompare(b, "th"));
   }
 
-  // ===== 4) Filter/Highlight =====
   function applyFilter(tagOrNull) {
     const cards = Array.from(
       document.querySelectorAll("#policies-container .policy-item")
     );
 
-    // ✅ ถ้าไม่เลือกแท็ก (null) = คืนสภาพปกติทั้งหมด
     if (!tagOrNull) {
       cards.forEach((c) => c.classList.remove("is-dim"));
       return;
@@ -160,7 +150,6 @@
     });
   }
 
-  // ===== 5) สร้างแถบแท็กแบบเลื่อนซ้าย-ขวา =====
   function buildTagBar(allTags) {
     const shell = document.createElement("div");
     shell.className = "policy-tags-shell";
@@ -190,7 +179,6 @@
       .forEach((b) => b.classList.remove("active"));
   }
 
-  // ===== 6) ใส่แท็กใน Modal ตอนเปิด (ไม่แตะ openModal เดิม) =====
   function hookModalTags() {
     const modal = document.getElementById("policyModal");
     const titleEl = document.getElementById("modalTitle");
@@ -230,7 +218,6 @@
     observer.observe(modal, { attributes: true, attributeFilter: ["class"] });
   }
 
-  // ===== INIT =====
   (async () => {
     const ok = await waitForCards();
     if (!ok) return;
@@ -239,14 +226,12 @@
 
     const allTags = attachTagsToCards();
 
-    // วาง bar ก่อน grid
     const page = document.querySelector("main.page");
     const grid = document.getElementById("policies-container");
     if (page && grid) {
       const { shell, bar } = buildTagBar(allTags);
       page.insertBefore(shell, grid);
 
-      // ===== Toggle behavior: กดแท็กเดิมซ้ำ = ยกเลิก =====
       let selectedTag = null;
 
       bar.addEventListener("click", (e) => {
@@ -255,7 +240,6 @@
 
         const tag = btn.dataset.tag;
 
-        // ถ้ากดแท็กเดิมซ้ำ -> ยกเลิก
         if (selectedTag === tag) {
           selectedTag = null;
           clearActive();
@@ -263,13 +247,11 @@
           return;
         }
 
-        // เลือกแท็กใหม่
         selectedTag = tag;
         clearActive();
         btn.classList.add("active");
         applyFilter(tag);
 
-        // เลื่อนให้แท็กที่เลือกอยู่กลาง ๆ (เนียนขึ้น)
         btn.scrollIntoView({
           behavior: "smooth",
           inline: "center",
@@ -277,7 +259,6 @@
         });
       });
 
-      // เริ่มต้น = ไม่เลือกแท็ก
       applyFilter(null);
     }
 

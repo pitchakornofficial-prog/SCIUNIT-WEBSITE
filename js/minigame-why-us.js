@@ -142,7 +142,7 @@
         cursor: pointer;
         overflow: hidden;
         border: 1px solid rgba(0,0,0,0.10);
-        background: linear-gradient(135deg, rgba(255,140,0,0.16), rgba(255,220,170,0.28));
+        background: linear-gradient(135deg, rgba(255, 0, 255, 0.5), rgba(251, 255, 0, 0.5));
         transition: transform 160ms ease;
       }
       #${CARD_ID}:hover { transform: translateY(-2px); }
@@ -341,7 +341,7 @@
       }
       #${MODAL_ID} .mg-btn.primary {
         border: 0;
-        background: linear-gradient(135deg, #ff7a00, #ffb300);
+        background: linear-gradient(135deg, #ff75f8, #fff563);
         color: #111;
         box-shadow: 0 12px 28px rgba(255,122,0,0.26);
       }
