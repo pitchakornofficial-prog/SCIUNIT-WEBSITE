@@ -22,7 +22,7 @@ function initNavbar() {
         <div class="nav-links">
           <a class="nav-link" href="index.html">หน้าแรก</a>
           <a class="nav-link" href="about.html">เกี่ยวกับพรรค</a>
-          <a class="nav-link" href="candidates.html">ทีมผู้สมัคร</a>
+          <a class="nav-link" href="candidates.html">ทำเนียบสมาชิก</a>
           <a class="nav-link" href="policies.html">นโยบายพรรค</a>
           <a class="nav-link" href="why-us.html">ทำไมต้องเลือกพรรคเรา</a>
           <a class="nav-link" href="contact.html">ติดต่อ & สอบถาม</a>
@@ -50,7 +50,7 @@ function initFooter() {
   if (!footerElement) return;
 
   const currentYear = new Date().getFullYear();
-  
+
   footerElement.innerHTML = `
     © ${currentYear} SCI UNIT | เว็บไซต์นี้เป็นทรัพย์สินทางปัญญาของพรรค SCI UNIT
     แต่เพียงผู้เดียว | คณะวิทยาศาสตร์ มหาวิทยาลัยอุบลราชธานี

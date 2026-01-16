@@ -11,8 +11,8 @@
       shortDesc: "Facebook / Instagram / TikTok<br />พรรค SCI UNIT",
       detail: "เลือกช่องทางที่ต้องการติดตามได้เลย",
       links: {
-        facebook: "https://www.facebook.com/myscienceubu",
-        instagram: "https://www.instagram.com/smo.science_ubu/",
+        facebook: "https://www.facebook.com/profile.php?id=61586475865124",
+        instagram: "https://www.instagram.com/sciunit_official/",
         tiktok: "https://www.tiktok.com/@smovidyaubu.official",
       },
     },
