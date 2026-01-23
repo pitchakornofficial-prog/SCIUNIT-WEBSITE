@@ -2,8 +2,8 @@
   const contactData = [
     {
       title: "ช่องทางติดต่อ",
-      shortDesc: "โทร : 093-526-2414<br />อีเมล : smosci.sciunit@gmail.com",
-      detail: "โทร: 093-526-2414\nอีเมล: smosci.sciunit@gmail.com",
+      shortDesc: "โทร : 093-526-2414<br />อีเมล : sciunit.partylist@gmail.com",
+      detail: "โทร: 093-526-2414\nอีเมล: sciunit.partylist@gmail.com",
       links: {},
     },
     {
@@ -28,7 +28,7 @@
         <h3>${item.title}</h3>
         <p>${item.shortDesc}</p>
       </article>
-    `
+    `,
       )
       .join("");
 
