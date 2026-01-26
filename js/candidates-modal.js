@@ -1,7 +1,7 @@
 (function initCandidatesSystem() {
   const candidatesData = [
     {
-      name: "นายธเนศ เฉลียวยิ่ง",
+      name: "นายธเนศ เฉลียวยิ่ง demo",
       role: "หัวหน้าพรรค #1",
       image: "images/1001.png",
       year: "ปี 2",
